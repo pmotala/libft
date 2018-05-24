@@ -14,10 +14,10 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
-	int i;
-	int j;
-	char *p1;
-	char *p2;
+	int		i;
+	int		j;
+	char	*p1;
+	char	*p2;
 
 	i = 0;
 	p1 = (char *)s1;

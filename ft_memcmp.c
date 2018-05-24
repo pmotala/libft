@@ -14,14 +14,14 @@
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int i;
-	unsigned char *buf;
-	unsigned char *buf2;
+	int				i;
+	unsigned char	*buf;
+	unsigned char	*buf2;
 
 	i = 0;
 	buf = (unsigned char *)s1;
 	buf2 = (unsigned char *)s2;
-	if((ft_strlen(buf) == 0) && (ft_strlen(buf2) == 0))
+	if ((ft_strlen(buf) == 0) && (ft_strlen(buf2) == 0))
 		return (0);
 	else if (n == 0)
 		return (0);
@@ -29,10 +29,8 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		while (i <= n)
 		{
-			if(buf[i] != buf2[i])
-			{
+			if (buf[i] != buf2[i])
 				return (buf[i] - buf2[i]);
-			}
 			i++;
 		}
 	}

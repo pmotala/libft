@@ -14,15 +14,15 @@
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int i;
-	int t;
-	int pos;
+	int		i;
+	int		t;
+	int		pos;
 
 	i = 0;
 	t = 0;
 	while (haystack[i])
 	{
-		t = 0;		
+		t = 0;
 		while (haystack[i] == needle[t] && needle[t])
 		{
 			t++;

@@ -14,11 +14,11 @@
 
 char	*ft_strtrim(char const *s)
 {
-	unsigned int i;
-	int k;
-	size_t j;
-	char *str;
-	char *cpy;
+	unsigned int	i;
+	int				k;
+	size_t			j;
+	char			*str;
+	char			*cpy;
 
 	i = 0;
 	k = 0;
@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s)
 	while ((str[j] == ' ' || str[j] == '\t' || str[j] == '\n'))
 		j--;
 	if (i > 0 || j < (ft_strlen(s)))
-		return(ft_strsub(s, i, (j - i)));
+		return (ft_strsub(s, i, (j - i)));
 	else
 		return (ft_strdup(s));
 }

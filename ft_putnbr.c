@@ -14,12 +14,12 @@
 
 int		ft_sizecheck(int c)
 {
-	int res;
+	int		res;
 
 	res = 0;
 	if (c < 0)
 		c = c * -1;
-	while(c > 10)
+	while (c > 10)
 	{
 		c = c / 10;
 		res++;
@@ -31,16 +31,16 @@ int		ft_sizecheck(int c)
 
 int		ft_sign(int c)
 {
-	if(c < 0)
+	if (c < 0)
 		return (1);
 	return (0);
 }
 
 void	ft_putnbr(int n)
 {
-	int i;
-	int k;
-	char str[13];
+	int		i;
+	int		k;
+	char	str[13];
 
 	i = ft_sizecheck(n) + ft_sign(n);
 	k = 0;
@@ -48,7 +48,7 @@ void	ft_putnbr(int n)
 		ft_putstr("-2147483648");
 	else
 	{
-		while(i >= 0)
+		while (i >= 0)
 		{
 			if (n < 0)
 			{

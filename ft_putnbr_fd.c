@@ -1,65 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/23 13:48:39 by pmotala           #+#    #+#             */
-/*   Updated: 2018/05/23 13:48:42 by pmotala          ###   ########.fr       */
+/*   Created: 2018/05/24 11:39:01 by pmotala           #+#    #+#             */
+/*   Updated: 2018/05/24 11:39:03 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_sizecheck(int n)
+int		ft_sizecheck(int c)
 {
 	int		res;
 
 	res = 0;
-	if (n < 0)
-		n = n * -1;
-	while (n >= 10)
+	if (c < 0)
+		c = c * -1;
+	while (c > 10)
 	{
-		n = n / 10;
+		c = c / 10;
 		res++;
-		if (n < 10)
+		if (c < 10)
 			return (res);
 	}
 	return (res);
 }
 
-int		ft_sign(int n)
+int		ft_sign(int c)
 {
-	if (n < 0)
+	if (c < 0)
 		return (1);
 	return (0);
 }
 
-char	*ft_itoa(int n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		j;
+	int		i;
 	int		k;
-	char	*str;
+	char	str[13];
 
-	j = ft_sizecheck(n) + ft_sign(n);
-	if ((str = (char *)malloc(sizeof(char) * j)) == NULL)
-		return (NULL);
+	i = ft_sizecheck(n) + ft_sign(n);
+	k = 0;
 	if (n == -2147483648)
-		return (ft_strcpy(str, "-2147483648"));
-	str[j] = '\0';
-	while (j >= 0)
+		ft_putstr_fd("-2147483648", fd);
+	else
 	{
-		if (n < 0)
+		while (i >= 0)
 		{
-			n = n * (-1);
-			k = 1;
+			if (n < 0)
+			{
+				n = n * -1;
+				k = 1;
+			}
+			str[i] = (n % 10) + 48;
+			n = n / 10;
+			i--;
 		}
-		str[j] = (n % 10) + 48;
-		n = n / 10;
-		j--;
+		if (k == 1)
+			str[0] = '-';
+		ft_putstr_fd(str, fd);
 	}
-	if (k == 1)
-		str[0] = '-';
-	return (str);
 }

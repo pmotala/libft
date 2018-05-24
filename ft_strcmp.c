@@ -14,12 +14,12 @@
 
 int		ft_strcmp(const char *str1, const char *str2)
 {
-	int i;
-	int c;
+	int		i;
+	int		c;
 
-	c = (ft_strlen(str1) + ft_strlen(str2)/2;
+	c = (ft_strlen(str1) + ft_strlen(str2)) / 2;
 	i = 0;
-	while(i <= c)
+	while (i <= c)
 	{
 		if (str1[i] == str2[i])
 			i++;

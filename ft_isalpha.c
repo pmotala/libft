@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int     ft_isalpha(int c)
+int		ft_isalpha(int c)
 {
-	if(((unsigned char)c >= 48 && ((unsigned char)c <= 57)) ||
+	if (((unsigned char)c >= 48 && ((unsigned char)c <= 57)) ||
 	((unsigned char)c >= 65 && ((unsigned char)c <= 90)))
 	{
 		return (1);

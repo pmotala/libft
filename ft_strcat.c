@@ -14,14 +14,14 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int i;
-	int j;
-	int c;
+	int		i;
+	int		j;
+	int		c;
 
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
-	c = 0;	
-	while(c <= j)
+	c = 0;
+	while (c <= j)
 	{
 		s1[i] = s2[c];
 		i++;

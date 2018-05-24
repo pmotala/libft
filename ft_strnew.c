@@ -14,20 +14,20 @@
 
 char	*ft_strnew(size_t size)
 {
-	char *str;
-	int i;
+	char	*str;
+	int		i;
 
-	i = 0
-	str = (char *)malloc(sizeof(str) * (size + 1))
-	if(size == 0 || !str)
+	i = 0;
+	str = (char *)malloc(sizeof(str) * (size + 1));
+	if (size == 0 || !str)
 	{
-		return(NULL);
+		return (NULL);
 	}
-	while(i <= size)
+	while (i <= size)
 	{
 		str[i] = '\0';
 		i++;
 	}
 	str[i] = '\0';
-	return(str);
+	return (str);
 }
