@@ -6,7 +6,7 @@
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 11:38:33 by pmotala           #+#    #+#             */
-/*   Updated: 2018/05/19 11:38:36 by pmotala          ###   ########.fr       */
+/*   Updated: 2018/05/28 13:24:20 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 int		ft_isalnum(int c)
 {
-	if (ft_isalpha((unsigned char)c) == 1 ||
-	ft_isdigit((unsigned char)c) == 1)
+	if (c < 128 && c >= 0)
 	{
-		return (1);
+		if (ft_isalpha((unsigned char)c) == 1 ||
+		ft_isdigit((unsigned char)c) == 1)
+		{
+			return (1);
+		}
 	}
-	else
-		return (0);
+	return (0);
 }

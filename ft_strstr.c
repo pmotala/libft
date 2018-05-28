@@ -6,7 +6,7 @@
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 13:33:26 by pmotala           #+#    #+#             */
-/*   Updated: 2018/05/19 13:33:28 by pmotala          ###   ########.fr       */
+/*   Updated: 2018/05/28 11:49:01 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ char	*ft_strstr(const char *haystack, const char *needle)
 
 	i = 0;
 	t = 0;
+	while (needle[t] != '\0')
+		t++;
+	if (t == 0)
+		return ((char *) haystack);
 	while (haystack[i])
 	{
-		t = 0;
-		while (haystack[i] == needle[t] && needle[t])
+		pos = 0;
+		while (needle[pos] == haystack[i + pos])
 		{
-			t++;
-			i++;
-		}
-		if (needle[t] == '\0')
-		{
-			pos = i - t;
-			return (((char *)haystack) + pos);
+			if ((pos) == (t - 1))
+				return (((char *)haystack) + i);
+			pos++;
 		}
 		i++;
 	}

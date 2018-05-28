@@ -6,7 +6,7 @@
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 11:57:11 by pmotala           #+#    #+#             */
-/*   Updated: 2018/05/22 11:57:14 by pmotala          ###   ########.fr       */
+/*   Updated: 2018/05/28 14:32:50 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,25 @@
 char	*ft_strtrim(char const *s)
 {
 	unsigned int	i;
-	int				k;
+	size_t			k;
 	size_t			j;
-	char			*str;
-	char			*cpy;
 
 	i = 0;
 	k = 0;
-	j = ft_strlen(s) - 1;
-	str = (char *)s;
-	while ((str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+	j = 0;
+	if (!s)
+		return (0);
+	while (s[j])
+		j++;
+	k = j;
+	while ((s[i] == ' ' || s[i] == '\t' || s[i] == '\n'))
 		i++;
-	while ((str[j] == ' ' || str[j] == '\t' || str[j] == '\n'))
+	if (s[i] == '\0')
+		return ("");
+	while ((s[j] == ' ' || s[j] == '\t' || s[j] == '\n' || s[j] == '\0'))
 		j--;
-	if (i > 0 || j < (ft_strlen(s)))
-		return (ft_strsub(s, i, (j - i)));
+	if (i > 0 || j < k)
+		return (ft_strsub(s, i, ((j - (size_t)i) + 1)));
 	else
 		return (ft_strdup(s));
 }

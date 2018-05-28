@@ -15,11 +15,11 @@
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	size_t		i;
-	char		*buf;
-	const char	*buf2;
+	unsigned char	*buf;
+	unsigned char	*buf2;
 
-	buf = (char *)dst;
-	buf2 = (const char *)src;
+	buf = (unsigned char *)dst;
+	buf2 = (unsigned char *)src;
 	i = 0;
 	while (i < n)
 	{

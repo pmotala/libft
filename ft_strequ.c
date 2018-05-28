@@ -6,7 +6,7 @@
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 09:44:41 by pmotala           #+#    #+#             */
-/*   Updated: 2018/05/22 09:44:42 by pmotala          ###   ########.fr       */
+/*   Updated: 2018/05/24 15:29:56 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		ft_strequ(char const *s1, char const *s2)
 {
 	int		i;
-	int		j;
 	char	*p1;
 	char	*p2;
 

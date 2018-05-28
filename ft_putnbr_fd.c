@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_sizecheck(int c)
+int		ft_sizecheck_fd(int c)
 {
 	int		res;
 
@@ -29,7 +29,7 @@ int		ft_sizecheck(int c)
 	return (res);
 }
 
-int		ft_sign(int c)
+int		ft_sign_fd(int c)
 {
 	if (c < 0)
 		return (1);
@@ -42,7 +42,7 @@ void	ft_putnbr_fd(int n, int fd)
 	int		k;
 	char	str[13];
 
-	i = ft_sizecheck(n) + ft_sign(n);
+	i = ft_sizecheck_fd(n) + ft_sign_fd(n);
 	k = 0;
 	if (n == -2147483648)
 		ft_putstr_fd("-2147483648", fd);

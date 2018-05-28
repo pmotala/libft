@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_sizecheck(int n)
+int		ft_size_c(int n)
 {
 	int		res;
 
@@ -29,7 +29,7 @@ int		ft_sizecheck(int n)
 	return (res);
 }
 
-int		ft_sign(int n)
+int		ft_sign_c(int n)
 {
 	if (n < 0)
 		return (1);
@@ -42,7 +42,7 @@ char	*ft_itoa(int n)
 	int		k;
 	char	*str;
 
-	j = ft_sizecheck(n) + ft_sign(n);
+	j = ft_size_c(n) + ft_sign_c(n);
 	if ((str = (char *)malloc(sizeof(char) * j)) == NULL)
 		return (NULL);
 	if (n == -2147483648)

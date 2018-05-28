@@ -6,7 +6,7 @@
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 15:08:05 by pmotala           #+#    #+#             */
-/*   Updated: 2018/05/22 15:08:07 by pmotala          ###   ########.fr       */
+/*   Updated: 2018/05/28 14:42:12 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ char	**ft_strsplit(char const *s, char c)
 	j = ft_strcnt(temp, c);
 	if (!(split = (char **)malloc(sizeof(char *) * j)))
 		return (NULL);
+	ft_memset(split,0, j);
 	while (j--)
 	{
 		while (temp[k] == c && temp[k] != '\0')
