@@ -6,13 +6,13 @@
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/24 10:17:30 by pmotala           #+#    #+#             */
-/*   Updated: 2018/05/28 08:49:18 by pmotala          ###   ########.fr       */
+/*   Updated: 2018/06/01 10:52:58 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_sizecheck(int c)
+static int	ft_sizecheck(int c)
 {
 	int		res;
 
@@ -29,14 +29,14 @@ int		ft_sizecheck(int c)
 	return (res);
 }
 
-int		ft_sign(int c)
+static int	ft_sign(int c)
 {
 	if (c < 0)
 		return (1);
 	return (0);
 }
 
-void	ft_putnbr(int n)
+void		ft_putnbr(int n)
 {
 	int		i;
 	int		k;

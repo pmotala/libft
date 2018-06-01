@@ -6,7 +6,7 @@
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 15:46:07 by pmotala           #+#    #+#             */
-/*   Updated: 2018/05/28 09:22:08 by pmotala          ###   ########.fr       */
+/*   Updated: 2018/06/01 10:32:15 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		while (i < n)
 		{
-			if(buf1[i] != buf2[i])
-				return(buf1[i] - buf2[i]);
+			if (buf1[i] != buf2[i])
+				return (buf1[i] - buf2[i]);
 			i++;
 		}
 	}
 	return (0);
 }
-

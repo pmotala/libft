@@ -6,13 +6,13 @@
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 15:08:05 by pmotala           #+#    #+#             */
-/*   Updated: 2018/05/28 14:42:12 by pmotala          ###   ########.fr       */
+/*   Updated: 2018/06/01 11:28:36 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_cleaner(char const *s, char c)
+static char	*ft_cleaner(char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -20,7 +20,8 @@ char	*ft_cleaner(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	if (!(temp = (char *)malloc(sizeof(temp) * (ft_strlen(s) + 1))))
+	if (!s || !(temp = (char *)malloc(sizeof(temp)
+		* (ft_strlen(s) + 1))))
 		return (NULL);
 	while (s[i])
 	{
@@ -38,13 +39,15 @@ char	*ft_cleaner(char const *s, char c)
 	return (temp);
 }
 
-int		ft_strcnt(char *temp, char c)
+static int	ft_strcnt(char *temp, char c)
 {
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 0;
+	if (!temp)
+		return (0);
 	while (temp[i])
 	{
 		if (temp[i] == c && temp[i + 1] != c)
@@ -54,7 +57,7 @@ int		ft_strcnt(char *temp, char c)
 	return (j);
 }
 
-int		ft_wdlen(char *s, char c)
+static int	ft_wdlen(char *s, char c)
 {
 	int i;
 	int j;
@@ -66,10 +69,10 @@ int		ft_wdlen(char *s, char c)
 		j++;
 		i++;
 	}
-	return (j - 1);
+	return (j);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	char	**split;
 	char	*temp;
@@ -81,14 +84,15 @@ char	**ft_strsplit(char const *s, char c)
 	k = 0;
 	temp = ft_cleaner(s, c);
 	j = ft_strcnt(temp, c);
-	if (!(split = (char **)malloc(sizeof(char *) * j)))
+	if (!s || !(split = (char **)malloc(sizeof(char *) * j)))
 		return (NULL);
-	ft_memset(split,0, j);
 	while (j--)
 	{
 		while (temp[k] == c && temp[k] != '\0')
 			k++;
-		split[i] = ft_strsub((const char*)temp, k, ft_wdlen(temp + k, c));
+		if (!(split[i] = ft_strsub((const char*)
+			temp, k, ft_wdlen(temp + k, c))))
+			return (NULL);
 		while (temp[k] != c && temp[k] != '\0')
 			k++;
 		i++;
