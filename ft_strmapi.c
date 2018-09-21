@@ -6,7 +6,7 @@
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/24 12:19:55 by pmotala           #+#    #+#             */
-/*   Updated: 2018/06/01 10:42:58 by pmotala          ###   ########.fr       */
+/*   Updated: 2018/06/05 09:03:22 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	j = 0;
+	if (!s || !f)
+		return (NULL);
 	while (s[j] != '\0')
 		j++;
 	if (!(str = (char *)malloc(sizeof(char) * (j + 1))))

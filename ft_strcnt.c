@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_strcnt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 15:08:05 by pmotala           #+#    #+#             */
-/*   Updated: 2018/06/06 15:58:15 by pmotala          ###   ########.fr       */
+/*   Created: 2018/06/14 08:45:18 by pmotala           #+#    #+#             */
+/*   Updated: 2018/06/14 09:19:03 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+int		ft_strcnt(const char *temp, char c)
 {
-	char	**split;
 	int		i;
 	int		j;
-	int		k;
+	int		instring;
 
 	i = 0;
-	k = 0;
-	if (!s)
-		return (NULL);
-	j = ft_strcnt(s, c);
-	if (!(split = (char **)malloc(sizeof(*split) * (j + 1))))
-		return (NULL);
-	while (j--)
+	j = 0;
+	instring = 0;
+	if (!temp || !c)
+		return (0);
+	while (temp[i])
 	{
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		split[k] = ft_strsub(s, i, ft_wdlen(s, i, c));
-		k++;
-		i = i + ft_wdlen(s, i, c);
+		if (temp[i] == c && instring == 1)
+			instring = 0;
+		if (temp[i] != c && instring == 0)
+		{
+			j++;
+			instring = 1;
+		}
+		i++;
 	}
-	split[k] = NULL;
-	return (split);
+	return (j);
 }

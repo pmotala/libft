@@ -6,49 +6,26 @@
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/24 10:17:30 by pmotala           #+#    #+#             */
-/*   Updated: 2018/06/01 10:52:58 by pmotala          ###   ########.fr       */
+/*   Updated: 2018/06/06 15:56:34 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_sizecheck(int c)
-{
-	int		res;
-
-	res = 0;
-	if (c < 0)
-		c = c * -1;
-	while (c > 10)
-	{
-		c = c / 10;
-		res++;
-		if (c < 10)
-			return (res);
-	}
-	return (res);
-}
-
-static int	ft_sign(int c)
-{
-	if (c < 0)
-		return (1);
-	return (0);
-}
-
 void		ft_putnbr(int n)
 {
 	int		i;
 	int		k;
-	char	str[13];
+	char	str[12];
 
+	ft_bzero(str, 12);
 	i = ft_sizecheck(n) + ft_sign(n);
 	k = 0;
 	if (n == -2147483648)
 		ft_putstr("-2147483648");
 	else
 	{
-		while (i >= 0)
+		while (i--)
 		{
 			if (n < 0)
 			{
@@ -57,7 +34,6 @@ void		ft_putnbr(int n)
 			}
 			str[i] = (n % 10) + 48;
 			n = n / 10;
-			i--;
 		}
 		if (k == 1)
 			str[0] = '-';

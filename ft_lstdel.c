@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 15:08:05 by pmotala           #+#    #+#             */
-/*   Updated: 2018/06/06 15:58:15 by pmotala          ###   ########.fr       */
+/*   Created: 2018/06/05 12:16:31 by pmotala           #+#    #+#             */
+/*   Updated: 2018/06/06 15:49:50 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	char	**split;
-	int		i;
-	int		j;
-	int		k;
+	t_list *temp;
+	t_list *add;
 
-	i = 0;
-	k = 0;
-	if (!s)
-		return (NULL);
-	j = ft_strcnt(s, c);
-	if (!(split = (char **)malloc(sizeof(*split) * (j + 1))))
-		return (NULL);
-	while (j--)
+	temp = *alst;
+	while (temp)
 	{
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		split[k] = ft_strsub(s, i, ft_wdlen(s, i, c));
-		k++;
-		i = i + ft_wdlen(s, i, c);
+		add = temp->next;
+		del(temp->content, temp->content_size);
+		free(temp);
+		temp = add;
 	}
-	split[k] = NULL;
-	return (split);
+	*alst = NULL;
 }

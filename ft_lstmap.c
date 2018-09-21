@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmotala <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 15:08:05 by pmotala           #+#    #+#             */
-/*   Updated: 2018/06/06 15:58:15 by pmotala          ###   ########.fr       */
+/*   Created: 2018/06/05 13:49:50 by pmotala           #+#    #+#             */
+/*   Updated: 2018/06/06 15:50:43 by pmotala          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char	**split;
-	int		i;
-	int		j;
-	int		k;
+	t_list	*new;
 
-	i = 0;
-	k = 0;
-	if (!s)
-		return (NULL);
-	j = ft_strcnt(s, c);
-	if (!(split = (char **)malloc(sizeof(*split) * (j + 1))))
-		return (NULL);
-	while (j--)
+	while (lst != NULL)
 	{
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		split[k] = ft_strsub(s, i, ft_wdlen(s, i, c));
-		k++;
-		i = i + ft_wdlen(s, i, c);
+		new = (t_list *)malloc(sizeof(t_list));
+		if (!new)
+			return (NULL);
+		new = f(lst);
+		new->next = ft_lstmap(lst->next, f);
+		return (new);
 	}
-	split[k] = NULL;
-	return (split);
+	return (NULL);
 }
