@@ -87,8 +87,7 @@ This is a list of my projects that use Libft extensively:
 Enjoy.
 
 [1]: https://github.com/pmotala/libft/document/libft.en.pdf "Libft PDF"
-[2]: https://wethinkcode.co.za "WeThinkCode_"
-[3]: https://github.com/R4meau/libft/wiki/Personal-Functions-Documentation
+[2]: https://www.wethinkcode.co.za "WeThinkCode_"
 [4]: https://github.com/alelievr/libft-unit-test
 [5]: https://github.com/yyang42/moulitest
 [6]: https://github.com/QuentinPerez/Maintest/tree/master/libft
