@@ -11,7 +11,7 @@ A basic implementation of some of the Standard C Library functions, as well as f
 * [Example usage](#example-usage)
 
 ### What is libft?
-[Libft][1] is an individual project at [WeThinkCode][2] that requires us to re-create some standard C library functions including some additional ones that can be useful for future project. 
+[Libft][1] is an individual project at [WeThinkCode_][2] that requires us to re-create some standard C library functions including some additional ones that can be useful for future project. 
 
 NOTE: *Although it seems redundent to recreate these functions, the purpose was to invest some basic coding principles that would carry us into the future.*
 
@@ -87,7 +87,7 @@ This is a list of my projects that use Libft extensively:
 Enjoy.
 
 [1]: https://github.com/pmotala/libft/document/libft.en.pdf "Libft PDF"
-[2]: http://wethinkcode.co.za "WeThinkCode_"
+[2]: https://wethinkcode.co.za "WeThinkCode_"
 [3]: https://github.com/R4meau/libft/wiki/Personal-Functions-Documentation
 [4]: https://github.com/alelievr/libft-unit-test
 [5]: https://github.com/yyang42/moulitest
